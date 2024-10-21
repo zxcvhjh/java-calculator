@@ -4,6 +4,10 @@ public class Calculator {
 
     private String[] splitInput(String input) {
 
+        if (input == null || input.isEmpty()) {
+            throw new IllegalArgumentException("Input cannot be null or empty.");
+        }
+
         String delimiter = ",|:";
         if (input.startsWith("//")) {
             int delimiterIndex = input.indexOf("\n");
