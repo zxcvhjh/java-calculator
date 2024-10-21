@@ -2,6 +2,11 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Calculator {
 
+    public int add(String input) {
+        String[] numbers = splitInput(input);
+        return sum(numbers);
+    }
+
     private String[] splitInput(String input) {
 
         if (input == null || input.isEmpty()) {
@@ -15,6 +20,14 @@ public class Calculator {
             input = input.substring(delimiterIndex + 1);
         }
         return input.split(delimiter);
+    }
+
+    private int sum(String[] numbers) {
+        int total = 0;
+        for (String number : numbers) {
+            total += parseNumber(number);
+        }
+        return total;
     }
 
     public static void main(String[] args) {
