@@ -30,6 +30,18 @@ public class Calculator {
         return total;
     }
 
+    private int parseNumber(String number) {
+        try {
+            int num = Integer.parseInt(number);
+            if (num < 0) {
+                throw new IllegalArgumentException("Negative numbers are not allowed: " + number);
+            }
+            return num;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Invalid input: " + number);
+        }
+    }
+    
     public static void main(String[] args) {
         System.out.println("덧셈할 문자열을 입력해 주세요.");
         String input = Console.readLine();
