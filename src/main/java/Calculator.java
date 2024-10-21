@@ -41,10 +41,17 @@ public class Calculator {
             throw new IllegalArgumentException("Invalid input: " + number);
         }
     }
-    
+
     public static void main(String[] args) {
         System.out.println("덧셈할 문자열을 입력해 주세요.");
         String input = Console.readLine();
         Calculator calculator = new Calculator();
+        try {
+            int result = calculator.add(input);
+            System.out.println("결과 : " + result);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
     }
 }
